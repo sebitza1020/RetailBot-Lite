@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Ask RetailBot</h2>
+<form method="post">
+    <textarea name="question" rows="4" style="width:100%" placeholder="Type your question">{{ request.form.question }}</textarea>
+    <button type="submit">Ask</button>
+</form>
+{% if answer %}
+<div class="answer">
+    <h3>Answer</h3>
+    <p>{{ answer }}</p>
+</div>
+{% endif %}
+{% endblock %}

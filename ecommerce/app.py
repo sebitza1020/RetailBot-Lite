@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, session, request
+from retailbot.chatbot import answer_question
 import sqlite3
 from pathlib import Path
 
@@ -97,6 +98,18 @@ def view_cart():
 def clear_cart():
     save_cart({})
     return redirect(url_for('view_cart'))
+
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+    cart = get_cart()
+    cart_count = sum(cart.values())
+    answer = None
+    if request.method == 'POST':
+        question = request.form.get('question', '')
+        if question:
+            answer = answer_question(question)
+    return render_template('chat.html', cart_count=cart_count, answer=answer)
 
 
 if __name__ == '__main__':
