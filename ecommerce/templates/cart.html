@@ -10,7 +10,7 @@
     </tr>
     {% for item in items %}
     <tr>
-        <td>{{ item.product.name }}</td>
+        <td><img src="{{ item.product.image }}" alt="" width="40"> {{ item.product.name }}</td>
         <td>{{ item.quantity }}</td>
         <td>${{ '%.2f'|format(item.total) }}</td>
     </tr>
