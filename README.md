@@ -102,6 +102,19 @@ retailbot‑lite/
 pytest
 ```
 
+## 📟 Command line chatbot
+
+A minimal example using the built‑in CSV catalog and markdown FAQ is provided in
+`retailbot/chatbot.py`. Set your `OPENAI_API_KEY` environment variable and ask a
+question directly from the terminal:
+
+```bash
+python -m retailbot.chatbot "Do you offer express shipping?"
+```
+
+The script retrieves relevant products and FAQ entries with semantic search and
+uses an LLM to generate the final answer.
+
 ## 🛍 Simple Flask store demo
 
 The `ecommerce` folder contains a lightweight shopping cart example powered by
