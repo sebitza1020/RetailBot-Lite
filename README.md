@@ -125,7 +125,8 @@ Run it locally:
 ```bash
 python ecommerce/app.py
 ```
-Open http://localhost:5000 to browse the catalog.
+Open http://localhost:5000 to browse the catalog. The chat interface is
+available at http://localhost:5000/chat.
 # 🛣️ Roadmap
 
 - Multilingual support (ES, FR, RO)
