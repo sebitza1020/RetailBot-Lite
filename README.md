@@ -11,13 +11,15 @@ Lightweight AI chatbot for retail catalog & FAQ, powered by retrieval‑augmente
 - 📈 Metrics endpoint for answer success‑rate & latency.
 - 🐳 One‑command Docker deployment for effortless demo.
 
-# 🚀 Quick demo (Docker)
+# 🚀 Quick demo
 
 ```
 git clone https://github.com/<you>/retailbot‑lite.git
 cd retailbot‑lite
-docker compose up --build
-# open http://localhost:8501 in your browser
+python -m retailbot.chatbot "Do you offer express shipping?"
+
+# Or launch the Flask store demo
+python ecommerce/app.py
 ```
 
 # 🛠️ Tech stack
@@ -44,7 +46,7 @@ LangChain
 
 UI
 
-Streamlit
+Command line interface & Flask demo
 
 Container
 
@@ -59,7 +61,7 @@ Docker, docker‑compose
                                    └────────┘
      ▲                ▲                  ▲
      │ REST API       │ embeddings       │
- Streamlit UI <───────┘                  │
+ Command line & Flask demo <──────┘                  │
                                      External
                                     Inventory API
 ```
@@ -78,23 +80,20 @@ pip install -r requirements.txt
 cp .env.example .env
 # edit OPENAI_API_KEY, CATALOG_PATH, etc.
 ```
-3. Run services
+3. Run the chatbot or demo store
 ```
-uvicorn app.main:app --reload      # REST API at :8000
-streamlit run ui/app.py            # Chat UI at :8501
+python -m retailbot.chatbot "What are your shipping options?"
+# or
+python ecommerce/app.py
 ```
 # 📂 Folder structure
 ```
-retailbot‑lite/
-├─ app/
-│  ├─ api/            # FastAPI routes
-│  ├─ core/           # settings, logger, schemas
-│  ├─ services/       # embedding & search logic
-│  └─ faq/            # markdown knowledge base
-├─ data/              # product_catalog.csv
-├─ ui/                # Streamlit frontend
-├─ tests/
-├─ docker-compose.yml
+retailbot-lite/
+├─ retailbot/            # chatbot logic
+├─ ecommerce/            # Flask demo
+├─ data/                 # product_catalog.csv
+├─ faq/                  # markdown knowledge base
+├─ requirements.txt
 └─ README.md
 ```
 # 🧪 Testing
