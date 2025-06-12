@@ -101,6 +101,19 @@ retailbot‑lite/
 ```
 pytest
 ```
+
+## 🛍 Simple Flask store demo
+
+The `ecommerce` folder contains a lightweight shopping cart example powered by
+Flask and SQLite. The database is automatically created on first run with sample
+products and images.
+
+Run it locally:
+
+```bash
+python ecommerce/app.py
+```
+Open http://localhost:5000 to browse the catalog.
 # 🛣️ Roadmap
 
 - Multilingual support (ES, FR, RO)
